@@ -1,9 +1,11 @@
 pipeline {
-    agent { label 'Java'}
-
+    //agent { label 'Java'}
+agent none
     stages {
-
+stage ('hello-world-war'){
+    parallel {
         stage('Checkout') {
+           agent { label 'Java'}
             steps {
                 sh "rm -rf hello-world-war"
               sh "git clone https://github.com/vivek-co/hello-world-war"
@@ -12,12 +14,14 @@ pipeline {
         }
 
         stage('Build') {
+            agent { label 'Java'}
             steps {
                  sh "mvn clean package"
             }
         }
 
         stage('Deploy') {
+            agent { label 'Java'}
             steps {
                  // Example deployment command
                  echo "Deploying application"
