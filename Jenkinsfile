@@ -16,7 +16,7 @@ stage ('hello-world-war'){
                             credentialsId: '3f6a9c95-2ecd-4bbe-a817-1ab975fb98d3',
                             keystoreVariable: 'CERTIFICATE_FOR_XYZ',
                             passwordVariable: 'XYZ_CERTIFICATE_PASSWORD'
-                        )])
+                        )]) {
                 sh "rm -rf hello-world-war"
               sh "git clone https://github.com/vivek-co/hello-world-war"
                 }
