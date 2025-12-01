@@ -12,11 +12,15 @@ stage ('hello-world-war'){
         stage('Checkout') {
            agent { label 'Java'}
             steps {
-                       withCredentials([sshUserPrivateKey(
+                 withCredentials([usernamePassword(
+                            credentialsId: '53798f27-0ed8-4bc5-84df-9e6c23bc5b73',
+                            usernameVariable: 'MY_USER',
+                            passwordVariable: 'MY_PASS'
+                     /*  withCredentials([sshUserPrivateKey(
                             credentialsId: '3f6a9c95-2ecd-4bbe-a817-1ab975fb98d3',
                              keyFileVariable: 'SSH_KEY',
                              usernameVariable: 'SSH_USER'
-                        )]) {
+                        )]) */{
                 sh "rm -rf hello-world-war"
               sh "git clone https://github.com/vivek-co/hello-world-war"
                 }
