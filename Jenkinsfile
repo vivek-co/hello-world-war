@@ -14,8 +14,8 @@ stage ('hello-world-war'){
             steps {
                  withCredentials([usernamePassword(
                             credentialsId: '53798f27-0ed8-4bc5-84df-9e6c23bc5b73',
-                            usernameVariable: 'MY_USER',
-                            passwordVariable: 'MY_PASS'
+                            usernameVariable: 'Vivek_USER',
+                            passwordVariable: 'Vivek_PASS'
                      /*  withCredentials([sshUserPrivateKey(
                             credentialsId: '3f6a9c95-2ecd-4bbe-a817-1ab975fb98d3',
                              keyFileVariable: 'SSH_KEY',
