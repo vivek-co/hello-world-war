@@ -42,4 +42,3 @@ stage ('hello-world-war'){
 }
 }
 }
-}
