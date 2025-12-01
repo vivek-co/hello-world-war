@@ -6,22 +6,21 @@ string(name: 'cmd', defaultValue: 'default', description: 'A sample string param
 booleanParam(name: 'SAMPLE_BOOLEAN', defaultValue: true, description: 'A boolean parameter')
 choice(name: 'cmd1', choices: ['install', 'compile'], description: 'Choose one option')
 }
-    {
-    withCredentials(bindings: [certificate(credentialsId: '53798f27-0ed8-4bc5-84df-9e6c23bc5b73', \
-                                                       keystoreVariable: 'CERTIFICATE_FOR_XYZ', \
-                                                       passwordVariable: 'XYZ-CERTIFICATE-PASSWORD')]) 
-                  // 
-                }
-    
-   stages {
+    stages {
 stage ('hello-world-war'){
     parallel {
         stage('Checkout') {
            agent { label 'Java'}
             steps {
+                {
+                        withCredentials([certificate(
+                            credentialsId: '3f6a9c95-2ecd-4bbe-a817-1ab975fb98d3',
+                            keystoreVariable: 'CERTIFICATE_FOR_XYZ',
+                            passwordVariable: 'XYZ_CERTIFICATE_PASSWORD'
+                        )])
                 sh "rm -rf hello-world-war"
               sh "git clone https://github.com/vivek-co/hello-world-war"
-              
+                }
             }
         }
 
