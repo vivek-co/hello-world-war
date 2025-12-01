@@ -6,6 +6,13 @@ string(name: 'cmd', defaultValue: 'default', description: 'A sample string param
 booleanParam(name: 'SAMPLE_BOOLEAN', defaultValue: true, description: 'A boolean parameter')
 choice(name: 'cmd1', choices: ['install', 'compile'], description: 'Choose one option')
 }
+    {
+    withCredentials(bindings: [certificate(credentialsId: '53798f27-0ed8-4bc5-84df-9e6c23bc5b73', \
+                                                       keystoreVariable: 'CERTIFICATE_FOR_XYZ', \
+                                                       passwordVariable: 'XYZ-CERTIFICATE-PASSWORD')]) 
+                  // 
+                }
+    
    stages {
 stage ('hello-world-war'){
     parallel {
