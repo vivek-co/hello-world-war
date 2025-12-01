@@ -12,8 +12,7 @@ stage ('hello-world-war'){
         stage('Checkout') {
            agent { label 'Java'}
             steps {
-                {
-                        withCredentials([certificate(
+                       withCredentials([certificate(
                             credentialsId: '3f6a9c95-2ecd-4bbe-a817-1ab975fb98d3',
                             keystoreVariable: 'CERTIFICATE_FOR_XYZ',
                             passwordVariable: 'XYZ_CERTIFICATE_PASSWORD'
