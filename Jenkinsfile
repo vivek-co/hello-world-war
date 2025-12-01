@@ -30,7 +30,7 @@ stage ('hello-world-war'){
         stage('Build') {
             agent { label 'Java'}
             steps {
-                 sh "mvn $cmd $cmd1 "
+                 sh "mvn $cmd $cmd1"
             }
         }
 
